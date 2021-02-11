@@ -1,55 +1,25 @@
 <template>
   <section>
-    <header>
-      <h1>My Friends</h1>
-    </header>
-    <add-friend @add-friend="addContact"></add-friend>
-    <ul>
-      <friend-contact
-        v-for="friend in friends"
-        :key="friend.id"
-        :friend="friend"
-        @toggle-favorite="toggleStatusFavorite"
-        @delete="deleteContact"
-      ></friend-contact>
-    </ul>
+    <active-user v-bind="user"></active-user>
+    <user-data @emit-change="updateUser" v-bind="user"></user-data>
   </section>
 </template>
 
 <script>
+import ActiveUser from "./components/ActiveUser.vue";
 export default {
+  components: { ActiveUser },
   data() {
     return {
-      friends: [
-        {
-          id: "manuel",
-          name: "Manuel Lorenz",
-          phone: "0123 45678 90",
-          email: "manuel@localhost.com",
-          isFavorite: false,
-        },
-        {
-          id: "julie",
-          name: "Julie Jones",
-          phone: "0987 654421 21",
-          email: "julie@localhost.com",
-          isFavorite: true,
-        },
-      ],
+      user: {
+        name: "Robin",
+        age: 20,
+      },
     };
   },
   methods: {
-    toggleStatusFavorite(friendId) {
-      const identifiedFriend = this.friends.find(
-        (friend) => friend.id === friendId
-      )
-      identifiedFriend.isFavorite = !identifiedFriend.isFavorite;
-    },
-    addContact(contact) {
-      this.friends.push(contact);
-    },
-    deleteContact(friendId) {
-      this.friends = this.friends.filter((friend) => friend.id !== friendId)
+    updateUser(user) {
+      this.user = user;
     }
   },
 };
@@ -83,14 +53,16 @@ header {
   list-style: none;
 }
 #app li,
-#app form {
+#app div {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-  margin: 1rem auto;
+  margin: 60px;
   border-radius: 10px;
   padding: 1rem;
   text-align: center;
-  width: 90%;
+  width: 50%;
+  height: 200px;
   max-width: 40rem;
+  float: left;
 }
 #app h2 {
   font-size: 2rem;
@@ -125,5 +97,7 @@ header {
 }
 #app form div {
   margin: 1rem 0;
+  height: 25px;
+  box-shadow: none;
 }
 </style>
