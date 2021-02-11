@@ -1,18 +1,19 @@
 const app = Vue.createApp({
   data() {
     return {
-      friends: [{
-        id: "manuel",
-        name: "Manuel Lorenz",
-        phone: "0123 45 67 89",
-        email: "manuel@localhost.com"
-      },
-      {
-        id: "julie",
-        name: "Julie Jones",
-        phone: "9876 54 32 10",
-        email: "julie@localhost.com"
-      }
+      friends: [
+        {
+          id: "manuel",
+          name: "Manuel Lorenz",
+          phone: "0123 45 67 89",
+          email: "manuel@localhost.com"
+        },
+        {
+          id: "julie",
+          name: "Julie Jones",
+          phone: "9876 54 32 10",
+          email: "julie@localhost.com"
+        }
       ]
     }
   },
