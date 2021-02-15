@@ -1,4 +1,4 @@
-import { createApp } from 'vue';
+import { createApp } from '../../../Section 12/http-01-starting-setup/src/node_modules/vue';
 import { createRouter, createWebHistory } from 'vue-router';
 
 import App from './App.vue';

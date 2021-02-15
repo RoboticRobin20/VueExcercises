@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHistory } from '../../../Section 14/animations-01-starting-setup/src/node_modules/vue-router';
 
 import TeamsList from './pages/TeamsList.vue';
 import UsersList from './pages/UsersList.vue';
